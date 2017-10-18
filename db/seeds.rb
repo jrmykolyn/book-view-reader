@@ -6,14 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = []
+readers = []
+books = []
 
-10.times do |x|
-    users << Reader.create( { :name => Faker::Name.name } )
+1.times do |x|
+    readers << Reader.create( { :name => Faker::Name.name } )
 end
 
-30.times do |x|
-    book = Book.create( { :name => Faker::Book.title } )
+10.times do |x|
+    books << Book.create( { :name => Faker::Book.title } )
+end
 
-    View.create( { :reader_id => users.sample.id, :book_id => book.id } )
+50.times do |x|
+    View.create( { :reader_id => readers.sample.id, :book_id => books.sample.id } )
 end
