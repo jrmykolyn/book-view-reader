@@ -1,0 +1,45 @@
+<h3>Starting from a Reader instance, get all the views for a given book.</h3>
+<% @starting_from_a_reader.each_with_index do | view, i | %>
+
+    <% if i == 0 %>
+    <p><%= "#{view.reader.name} read \"#{view.book.name}\" #{@starting_from_a_reader.count} times" %></p>
+    <% end %>
+
+    <p><strong><%= i + 1 %></strong> <%= view.created_at %></p>
+<% end %>
+
+<br /><br /><br />
+
+<h3>Starting from a Book instance, get all the views for a given reader.</h3>
+<% @starting_from_a_book.each_with_index do | view, i | %>
+
+    <% if i == 0 %>
+    <p><%= "\"#{view.book.name}\" was read by #{view.reader.name} #{@starting_from_a_book.count} times" %></p>
+    <% end %>
+
+    <p><strong><%= i + 1 %></strong> <%= view.created_at %></p>
+<% end %>
+
+<br /><br /><br />
+
+<h3>Starting from the View model, get any records for a given book and reader.</h3>
+<% @starting_from_the_view_model.each_with_index do | view, i | %>
+
+    <% if i == 0 %>
+    <p><%= "There are #{@starting_from_the_view_model.count} views for the following reader and book: \"#{view.reader.name}\"; #{view.book.name}" %></p>
+    <% end %>
+
+    <p><strong><%= i + 1 %></strong> <%= view.created_at %></p>
+<% end %>
+
+<br /><br /><br />
+
+<h3>Starting by joining our tables together, query by and reader, and filter down our results.</h3>
+<% @starting_with_a_join.each_with_index do | view, i | %>
+
+    <% if i == 0 %>
+    <p><%= "There are #{@starting_with_a_join.count} views for the following reader and book: \"#{view.reader.name}\"; #{view.book.name}" %></p>
+    <% end %>
+
+    <p><strong><%= i + 1 %></strong> <%= view.created_at %></p>
+<% end %>
